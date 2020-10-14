@@ -10,7 +10,8 @@ function listAnimals() {
 }
 
 async function showChimera(chimera) {
-    play.sound("./assets/horn.mp3")
+    player.play(chimera.headAnimal.sound);
+    player.play(chimera.bodyAnimal.sound);
     console.log(`${chimera.headAnimal.id} + ${chimera.bodyAnimal.id}`)
     
     console.log(await terminalImage.buffer(await chimera.image.toBuffer(), {width: 50, height: 20}) );
