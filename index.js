@@ -11,7 +11,7 @@ async function display(chimera) {
     console.log(`${chimera.headAnimal.id} + ${chimera.bodyAnimal.id}`)
     
     console.log(await terminalImage.buffer(await chimera.image.toBuffer(), {width: 50, height: 20}) );
-    console.log(chimera.name);
+    console.log(`The ${chimera.name} says ${chimera.headAnimal.soundPrefix}${chimera.bodyAnimal.soundSuffix}!`);
 }
 
 async function main() {
