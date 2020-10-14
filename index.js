@@ -9,9 +9,8 @@ function displayHelp() {
 
 async function display(chimera) {
     console.log(`${chimera.headAnimal.id} + ${chimera.bodyAnimal.id}`)
-    imgbuffer = await chimera.image.toBuffer();
     
-    console.log(await terminalImage.buffer(imgbuffer, {width: 50, height: 20}) );
+    console.log(await terminalImage.buffer(await chimera.image.toBuffer(), {width: 50, height: 20}) );
     console.log(chimera.name);
 }
 
@@ -19,7 +18,7 @@ async function main() {
     try {
         const [headName, bodyName] = process.argv.slice(2);
 
-        if(headName == "--help") {
+        if(headName == "--help" || headName == "-h") {
             displayHelp();
             return;
         }

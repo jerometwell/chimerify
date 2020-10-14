@@ -2,7 +2,7 @@ A CLI for merging animals (badly)
 
 ```sh
 chimera [head] [body]
-chicken dog chicken
+chimera dog chicken
 ```
 
 ![example chimera](example.png)

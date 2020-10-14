@@ -95,7 +95,6 @@ async function mergeAnimals({head: headAnimal, body: bodyAnimal}) {
     const image = bodyAnimal
             .bodyImage
             .composite( [ {input: transformedHead,  top: body.y + head.y, left: body.x + head.x}] )
-            .flatten({background:"#00000000"});
     
     return new Chimera({name, image, headAnimal, bodyAnimal});
 }
