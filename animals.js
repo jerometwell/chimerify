@@ -4,6 +4,8 @@ const ANIMALS = {
     "pig": {
         prefix: "p",
         suffix: "ig",
+        soundPrefix: "oi",
+        soundSuffix: "nk",
         head: {
             x: 15,
             y: 10,
@@ -20,6 +22,8 @@ const ANIMALS = {
     "chicken": {
         prefix: "ch",
         suffix: "icken",
+        soundPrefix: "clu",
+        soundSuffix: "ck",
         head: {
             x: 0,
             y: 10,
@@ -36,6 +40,8 @@ const ANIMALS = {
     "dog": {
         prefix: "d",
         suffix: "og",
+        soundPrefix: "woo",
+        soundSuffix: "f",
         head: {
             x: -5,
             y: -5,
@@ -61,10 +67,12 @@ class Chimera {
 }
 
 class Animal {
-    constructor({id, prefix, suffix, head, body}) {
+    constructor({id, prefix, suffix, soundPrefix, soundSuffix, head, body}) {
         this.id = id;
         this.prefix = prefix;
         this.suffix = suffix;
+        this.soundPrefix = soundPrefix;
+        this.soundSuffix = soundSuffix;
         this.head = head;
         this.body = body;
     }
