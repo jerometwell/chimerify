@@ -3,12 +3,14 @@ const {getAnimal, mergeAnimals} = require("./lib/animals");
 const yargs = require('yargs/yargs');
 const package = require("./package.json");
 const terminalImage = require("terminal-image");
+const play = require("play");
 
 function listAnimals() {
     console.log("Animals: ", getAnimalIds());
 }
 
 async function showChimera(chimera) {
+    play.sound("./assets/horn.mp3")
     console.log(`${chimera.headAnimal.id} + ${chimera.bodyAnimal.id}`)
     
     console.log(await terminalImage.buffer(await chimera.image.toBuffer(), {width: 50, height: 20}) );
