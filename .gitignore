@@ -1,0 +1,7 @@
+# asset template
+*.psd
+sourcefiles
+node_modules
+.DS_Store
+out.png
+chimera.png
