@@ -1,4 +1,5 @@
 #!/usr/bin/env node
+const {getAnimal, mergeAnimals} = require("./lib/animals");
 const yargs = require('yargs/yargs');
 const package = require("./package.json");
 const terminalImage = require("terminal-image");
