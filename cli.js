@@ -7,7 +7,6 @@ const PlaySound = require("play-sound");
 const path = require('path');
 
 const assetsPath = path.join(__dirname, '/assets');
-console.log(assetsPath)
 setAssetPath(assetsPath);
 
 const player = PlaySound();
