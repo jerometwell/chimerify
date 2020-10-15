@@ -1,9 +1,13 @@
 #!/usr/bin/env node
-const {getAnimal, mergeAnimals, getAnimalIds} = require("./lib/animals");
+const {getAnimal, mergeAnimals, getAnimalIds, setAssetPath} = require("./lib/animals");
 const yargs = require('yargs/yargs');
 const package = require("./package.json");
 const terminalImage = require("terminal-image");
 const PlaySound = require("play-sound");
+const path = require('path');
+
+const assetsPath = path.join(__dirname, '/assets');
+setAssetPath(assetsPath);
 
 const player = PlaySound();
 
@@ -70,5 +74,5 @@ const argParser = yargs()
     })
 
 const args = argParser.parse(process.argv.slice(2));
-console.log(args);
+
 main(args);
