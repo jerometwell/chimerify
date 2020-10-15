@@ -10,7 +10,12 @@ Options:
   -h, --help          Show help                                        [boolean]
       --version       Show version number                              [boolean]
       --list-animals  List all available animals                       [boolean]
+      --sfx           use sound effects              [boolean] [default: "true"]
+```
 
-chimerify [head] [body]
-chimerify dog chicken
+```sh
+chimerify dog pig
+
+# turn off sfx
+chimerify dog pig --no-sfx
 ```

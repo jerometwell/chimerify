@@ -1,15 +1,23 @@
 #!/usr/bin/env node
-const {getAnimal, mergeAnimals} = require("./lib/animals");
+const {getAnimal, mergeAnimals, getAnimalIds} = require("./lib/animals");
 const yargs = require('yargs/yargs');
 const package = require("./package.json");
 const terminalImage = require("terminal-image");
+const PlaySound = require("play-sound");
+
+const player = PlaySound();
 
 function listAnimals() {
     console.log("Animals: ", getAnimalIds());
 }
 
-async function showChimera(chimera) {
-    console.log(`${chimera.headAnimal.id} + ${chimera.bodyAnimal.id}`)
+async function showChimera(chimera, {playSfx}) {
+    if(playSfx) {
+        player.play(chimera.headAnimal.sound);
+        player.play(chimera.bodyAnimal.sound);
+    }
+
+    console.log(`${chimera.headAnimal.id} + ${chimera.bodyAnimal.id}`);
     
     console.log(await terminalImage.buffer(await chimera.image.toBuffer(), {width: 50, height: 20}) );
     console.log(`The ${chimera.name} says ${chimera.headAnimal.soundPrefix}${chimera.bodyAnimal.soundSuffix}!`);
@@ -23,17 +31,6 @@ function assertAnimal(id) {
 
     return animal;
 }
-
-
-const argParser = yargs()
-    .usage('Usage: $0 <head> <body> [options]')
-    .help('h')
-    .alias("h", "help")
-    .version(package.version)
-    .option('list-animals', {
-        type: 'boolean',
-        description: 'List all available animals'
-    })
 
 async function main(args) {
     try {
@@ -51,11 +48,27 @@ async function main(args) {
 
         const chimera = await mergeAnimals({head, body});
 
-        await showChimera(chimera);
+        await showChimera(chimera, {playSfx: args.sfx});
     } catch (e) {
         console.error(`👀 Oops! `, e);
     }
 }
 
+const argParser = yargs()
+    .usage('Usage: $0 <head> <body> [options]')
+    .help('h')
+    .alias("h", "help")
+    .version(package.version)
+    .option('list-animals', {
+        type: 'boolean',
+        description: 'List all available animals'
+    })
+    .option('sfx', {
+        type: "boolean",
+        default: "true",
+        description: 'use sound effects'
+    })
+
 const args = argParser.parse(process.argv.slice(2));
+console.log(args);
 main(args);
