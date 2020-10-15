@@ -27,6 +27,7 @@ function assertAnimal(id) {
 const argParser = yargs()
     .usage('Usage: $0 <head> <body> [options]')
     .help('h')
+    .alias("h", "help")
     .version(package.version)
     .option('list-animals', {
         type: 'boolean',
