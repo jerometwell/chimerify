@@ -3,7 +3,9 @@ const {getAnimal, mergeAnimals} = require("./lib/animals");
 const yargs = require('yargs/yargs');
 const package = require("./package.json");
 const terminalImage = require("terminal-image");
-const play = require("play");
+const PlaySound = require("play-sound");
+
+const player = PlaySound();
 
 function listAnimals() {
     console.log("Animals: ", getAnimalIds());
