@@ -11,10 +11,13 @@ function listAnimals() {
     console.log("Animals: ", getAnimalIds());
 }
 
-async function showChimera(chimera) {
-    player.play(chimera.headAnimal.sound);
-    player.play(chimera.bodyAnimal.sound);
-    console.log(`${chimera.headAnimal.id} + ${chimera.bodyAnimal.id}`)
+async function showChimera(chimera, {playSfx}) {
+    if(playSfx) {
+        player.play(chimera.headAnimal.sound);
+        player.play(chimera.bodyAnimal.sound);
+    }
+
+    console.log(`${chimera.headAnimal.id} + ${chimera.bodyAnimal.id}`);
     
     console.log(await terminalImage.buffer(await chimera.image.toBuffer(), {width: 50, height: 20}) );
     console.log(`The ${chimera.name} says ${chimera.headAnimal.soundPrefix}${chimera.bodyAnimal.soundSuffix}!`);
@@ -39,6 +42,11 @@ const argParser = yargs()
         type: 'boolean',
         description: 'List all available animals'
     })
+    .option('no-sfx', {
+        type: "boolean",
+        description: 'turn off sound effects'
+    })
+
 
 async function main(args) {
     try {
@@ -56,7 +64,7 @@ async function main(args) {
 
         const chimera = await mergeAnimals({head, body});
 
-        await showChimera(chimera);
+        await showChimera(chimera, {playSfx: args.sfx});
     } catch (e) {
         console.error(`👀 Oops! `, e);
     }
