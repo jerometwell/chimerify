@@ -70,5 +70,5 @@ const argParser = yargs()
     })
 
 const args = argParser.parse(process.argv.slice(2));
-console.log(args);
+
 main(args);
