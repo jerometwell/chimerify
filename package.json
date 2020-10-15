@@ -1,6 +1,6 @@
 {
   "name": "chimerify",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Create animal combinations!",
   "repository": "https://github.com/jerometwell/chimera",
   "main": "index.js",
