@@ -1,5 +1,5 @@
 #!/usr/bin/env node
-const {getAnimal, mergeAnimals} = require("./lib/animals");
+const {getAnimal, mergeAnimals, getAnimalIds} = require("./lib/animals");
 const yargs = require('yargs/yargs');
 const package = require("./package.json");
 const terminalImage = require("terminal-image");
@@ -32,22 +32,6 @@ function assertAnimal(id) {
     return animal;
 }
 
-
-const argParser = yargs()
-    .usage('Usage: $0 <head> <body> [options]')
-    .help('h')
-    .alias("h", "help")
-    .version(package.version)
-    .option('list-animals', {
-        type: 'boolean',
-        description: 'List all available animals'
-    })
-    .option('no-sfx', {
-        type: "boolean",
-        description: 'turn off sound effects'
-    })
-
-
 async function main(args) {
     try {
         if(args.listAnimals) {
@@ -70,5 +54,21 @@ async function main(args) {
     }
 }
 
+const argParser = yargs()
+    .usage('Usage: $0 <head> <body> [options]')
+    .help('h')
+    .alias("h", "help")
+    .version(package.version)
+    .option('list-animals', {
+        type: 'boolean',
+        description: 'List all available animals'
+    })
+    .option('sfx', {
+        type: "boolean",
+        default: "true",
+        description: 'use sound effects'
+    })
+
 const args = argParser.parse(process.argv.slice(2));
+console.log(args);
 main(args);
