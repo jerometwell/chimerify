@@ -1,10 +1,11 @@
 {
-  "name": "chimera",
-  "version": "1.0.0",
+  "name": "chimerify",
+  "version": "1.0.3",
   "description": "Create animal combinations!",
+  "repository": "https://github.com/jerometwell/chimera",
   "main": "index.js",
   "bin": {
-    "chimera": "index.js"
+    "chimerify": "cli.js"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,7 +14,9 @@
   "license": "MIT",
   "devDependencies": {},
   "dependencies": {
+    "play-sound": "^1.1.3",
     "sharp": "^0.26.1",
-    "terminal-image": "^1.2.1"
+    "terminal-image": "^1.2.1",
+    "yargs": "^16.0.3"
   }
 }

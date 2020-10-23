@@ -1,13 +1,21 @@
+# Chimerify
 A CLI for merging animals (badly)
-
-```sh
-chimera [head] [body]
-chimera dog chicken
-```
 
 ![example chimera](example.png)
 
-Available animals:
-* chicken
-* dog
-* pig
+```sh
+Usage: chimerify <head> <body> [options]
+
+Options:
+  -h, --help          Show help                                        [boolean]
+      --version       Show version number                              [boolean]
+      --list-animals  List all available animals                       [boolean]
+      --sfx           use sound effects              [boolean] [default: "true"]
+```
+
+```sh
+chimerify dog pig
+
+# turn off sfx
+chimerify dog pig --no-sfx
+```

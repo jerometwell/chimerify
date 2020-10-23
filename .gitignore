@@ -5,3 +5,5 @@ node_modules
 .DS_Store
 out.png
 chimera.png
+
+package-lock.json
