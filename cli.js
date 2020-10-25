@@ -55,6 +55,7 @@ async function main(args) {
         await showChimera(chimera, {playSfx: args.sfx});
     } catch (e) {
         console.error(`👀 Oops! `, e);
+        process.exit(1);
     }
 }
 
