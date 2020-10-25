@@ -15,6 +15,8 @@ and this project adheres to [Semantic Versioning](http://semver.org/spec/v2.0.0.
   * `Security` in case of vulnerabilities.
 
 ## [Unreleased]
+
+## [v1.1.0] 2020-10-25
 - Added New animal `whale`! 🐋
 - Added integration tests
 - Added Animal Creation Guide to `README.md`.
