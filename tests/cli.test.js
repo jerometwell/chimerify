@@ -22,10 +22,10 @@ function cli(args = [], cwd = '.') {
     })
 }
 
-describe("-v", () => {
+describe("--version", () => {
     let result;
     beforeEach(async () => {
-        result = await cli(['-v']);
+        result = await cli(['--version']);
     });
     it("should exit successfully", () => {
         expect(result.code).toBe(0);
