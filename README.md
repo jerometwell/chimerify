@@ -1,6 +1,8 @@
 # Chimerify
 A CLI for merging animals (badly)
 
+https://www.npmjs.com/package/chimerify
+
 ![example chimera](example.png)
 
 ```sh
